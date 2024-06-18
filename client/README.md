@@ -25,3 +25,27 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## MkCert so that you can use https instead on http on localhost
+
+- Install chocolatey if you on windows
+
+```
+    choco install mkcert
+```
+
+- Then run to generate the certificate keys
+
+```
+    mkcert localhost
+```
+
+- There after update the file Angular.json under serve, Just remember to point to the right folder which houses the certificates
+
+```
+    "options": {
+                "ssl": true,
+                "sslCert": "./ssl/localhost.pem",
+                "sslKey": "./ssl/localhost-key.pem"
+            },
+```
